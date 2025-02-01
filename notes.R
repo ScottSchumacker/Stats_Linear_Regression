@@ -3,6 +3,7 @@
 
 # Loading libraries
 library(tidyverse)
+library(lmtest)
 
 # Using cars data set
 head(cars, 10)
@@ -34,6 +35,12 @@ cars %>%
 hist(lmModel$residuals)
 
 # Checking for homoscedasticity of residuals
+# Ho: Heteroscedasticity is not present
+# Ha: Heteroscedasticity is present
+bptest(lmModel)
+
+# p-value is above alpha at 0.05. We fail to reject null hypothesis
+# model residuals are most likely show homoscedasticity
 
 # Checking for multicollinearity
 
