@@ -11,7 +11,7 @@ head(cars, 10)
 cars %>% 
   ggplot(aes(speed, dist)) +
   geom_point() +
-  geom_smooth(method = "lm", se = F)
+  theme_classic()
 
 # Creating model summary
 cars %>% 
@@ -21,3 +21,19 @@ cars %>%
 # Looking at model coefficients
 lmModel <- lm(dist ~ speed, data = cars)
 lmModel
+summary(lmModel)
+
+# Visualizing data
+cars %>% 
+  ggplot(aes(speed, dist)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F) +
+  theme_classic()
+
+# Checking normality of residuals
+hist(lmModel$residuals)
+
+# Checking for homoscedasticity of residuals
+
+# Checking for multicollinearity
+
