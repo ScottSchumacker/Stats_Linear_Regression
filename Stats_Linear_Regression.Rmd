@@ -8,3 +8,28 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+This project will show an example linear regression analysis using the cars data set. We will be analyzing the linear relationship between the distance to stop variable and the speed variable.
+
+***Loading Packages***
+```{r}
+library(tidyverse)
+library(lmtest)
+```
+
+## Creating a data set
+For this example linear regression analysis, we will be using the cars data. Preview of the data:
+```{r}
+head(cars)
+```
+
+After seeing a preview of the data set, we can visualize the relationship between these two variables to see if there may be a linear relationship.
+
+***Visualizing linear relationship***
+```{r}
+# Visualizing data as scatter plot
+cars %>% 
+  ggplot(aes(speed, dist)) +
+  geom_point() +
+  theme_classic()
+```
