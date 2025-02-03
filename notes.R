@@ -8,7 +8,7 @@ library(lmtest)
 # Using cars data set
 head(cars, 10)
 
-# Visualizing data
+# Visualizing data as scatter plot
 cars %>% 
   ggplot(aes(speed, dist)) +
   geom_point() +
@@ -24,7 +24,7 @@ lmModel <- lm(dist ~ speed, data = cars)
 lmModel
 summary(lmModel)
 
-# Visualizing data
+# Visualizing data with linear trend line added
 cars %>% 
   ggplot(aes(speed, dist)) +
   geom_point() +
@@ -41,6 +41,3 @@ bptest(lmModel)
 
 # p-value is above alpha at 0.05. We fail to reject null hypothesis
 # model residuals are most likely show homoscedasticity
-
-# Checking for multicollinearity
-
