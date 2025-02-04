@@ -43,3 +43,30 @@ cars %>%
   summary()
 ```
 The model output shows us that there is a significant linear relationship between speed and distance (p-value = 1.49e-12) and that speed explains 65% of the variation in distance.
+
+We can re-create the data visualization with a linear trend line drawn on top:
+```{r}
+# Visualizing data with linear trend line added
+cars %>% 
+  ggplot(aes(speed, dist)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F) +
+  theme_classic()
+```
+
+To make sure that the linear regression analysis is valid, we also need to check the assumptions.
+
+We can first check for normality of the model residuals:
+```{r}
+lmModel <- lm(dist ~ speed, data = cars)
+
+# Checking normality of residuals
+hist(lmModel$residuals)
+```
+We can see that the residuals show a normal distribution and are centered around 0.
+
+In addition, we can check for homoscedasticity of variance of the residuals using the Breusch-Pagan Test with an alpha of 0.05:
+```{r}
+bptest(lmModel)
+```
+Since our p-value is greater than our alpha of 0.05, we can assume equal variance in the model residual.
