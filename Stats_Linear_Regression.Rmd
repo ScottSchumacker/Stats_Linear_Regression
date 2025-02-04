@@ -36,13 +36,17 @@ cars %>%
 
 There appears to be a positive correlation between speed and distance. We can create a linear model to further examine any linear relationship.
 
+***Creating linear model***
 ```{r}
 # Creating model summary
 cars %>% 
   lm(dist ~ speed, data = .) %>% 
   summary()
 ```
+
 The model output shows us that there is a significant linear relationship between speed and distance (p-value = 1.49e-12) and that speed explains 65% of the variation in distance.
+
+***Visualizing linear trend***
 
 We can re-create the data visualization with a linear trend line drawn on top:
 ```{r}
@@ -54,6 +58,8 @@ cars %>%
   theme_classic()
 ```
 
+***Checking linear regression assumptions***
+
 To make sure that the linear regression analysis is valid, we also need to check the assumptions.
 
 We can first check for normality of the model residuals:
@@ -63,6 +69,7 @@ lmModel <- lm(dist ~ speed, data = cars)
 # Checking normality of residuals
 hist(lmModel$residuals)
 ```
+
 We can see that the residuals show a normal distribution and are centered around 0.
 
 In addition, we can check for homoscedasticity of variance of the residuals using the Breusch-Pagan Test with an alpha of 0.05:
