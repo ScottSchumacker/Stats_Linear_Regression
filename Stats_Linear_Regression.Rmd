@@ -33,3 +33,12 @@ cars %>%
   geom_point() +
   theme_classic()
 ```
+
+There appears to be a positive correlation between speed and distance. We can create a linear model to further examine any linear relationship.
+
+```{r}
+# Creating model summary
+cars %>% 
+  lm(dist ~ speed, data = .) %>% 
+  summary()
+```
