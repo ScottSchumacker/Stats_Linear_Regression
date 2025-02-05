@@ -36,6 +36,12 @@ cars %>%
 
 There appears to be a positive correlation between speed and distance. We can create a linear model to further examine any linear relationship.
 
+Before creating our linear model we can create our Hypothesis: <br>
+H0: The slope of the regression equals 0 (B0 = 0) <br>
+Ha: The slope of the regression does not equal 0 (B0 != 0)
+
+We can use an alpha of 0.05.
+
 ***Creating linear model***
 ```{r}
 # Creating model summary
