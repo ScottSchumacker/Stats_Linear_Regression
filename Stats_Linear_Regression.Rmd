@@ -49,8 +49,8 @@ cars %>%
   lm(dist ~ speed, data = .) %>% 
   summary()
 ```
-
-The model output shows us that there is a significant linear relationship between speed and distance (p-value = 1.49e-12) and that speed explains 65% of the variation in distance.
+### Results
+The model output shows us that there is a significant linear relationship between speed and distance and that we can reject our null hypothesis (p-value = 1.49e-12). In addition, from the R-squared value, we can see that speed explains 65% of the variation in distance.
 
 ***Visualizing linear trend***
 
